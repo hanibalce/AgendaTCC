@@ -14,7 +14,7 @@ public class EntityManagerProducer {
 	private EntityManagerFactory factory;
 	
 	public EntityManagerProducer() {
-		factory = Persistence.createEntityManagerFactory("saadPU");
+		factory = Persistence.createEntityManagerFactory("agtccPU");
 	}
 	
 	@Produces @RequestScoped
