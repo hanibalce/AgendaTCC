@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Saad - Login</title>
+	<link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}" />
+	<h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+<h:body>
+	<div id="frm-login">
+		<h:form id="frm">
+			<p:panelGrid columns="2" styleClass="grid-login">
+				<f:facet name="header">
+					<h:panelGrid styleClass="login-header">
+                            Entrar
+                        </h:panelGrid>
+				</f:facet>
+				<p:outputLabel value="Usuário:" for="usuario" style="font-weight: bold; color: #2779aa;" />
+				<p:inputText id="usuario" size="25" value="#{loginBean.usuario.login}" />
+				<p:outputLabel value="Senha:" for="senha" style="font-weight: bold; color: #2779aa;" />
+				<p:password id="senha" size="25" value="#{loginBean.usuario.password}" />
+				<p:outputLabel />
+				<p:commandButton value="Acessar" action="#{loginBean.realizarLogin(loginBean.usuario)}" />
+				<f:facet name="footer">
+					<h:panelGrid styleClass="login-footer">
+						<p>SAAD - Sistema de Apoio a Aprendizagem Discente</p>
+						<p>NUTEDS/UFC - Núcleo de Tecnologias e Educação a Distância em Saúde</p>
+					</h:panelGrid>
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<ui:composition template="/WEB-INF/template/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+	<ui:define name="titulo">SAAD - Lista de Perfis</ui:define>
+	<ui:define name="corpo">
+		<div style="width: 600px; margin: 0 auto;">
+			<h:form>
+				<p:commandButton value="Retornar Para Consulta" action="consultaBdMoodle?faces-redirect=true" />
+			</h:form>
+			<br />
+			<h:form id="frm">
+				<p:panelGrid id="grid" columns="2" style="width:600px; text-align:left;">
+					<p:outputLabel value="Nome do BD:" for="nome"/>
+					<h:panelGroup>
+						<p:inputText id="nome" value="#{bdMoodleBean.bdMoodle.nomeBD}" size="70" required="true" />
+						<p:message for="nome" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+						<h:inputHidden value="#{bdMoodleBean.bdMoodle.id}" />
+					</h:panelGroup>
+					<p:outputLabel value="Porta:" for="porta" />
+					<h:panelGroup>
+						<p:inputText id="porta" value="#{bdMoodleBean.bdMoodle.porta}" size="10" required="true" maxlength="8">
+							<f:convertNumber maxFractionDigits="0" for="porta" integerOnly="true" minFractionDigits="0" maxIntegerDigits="6" />
+						</p:inputText>
+						<p:message for="porta" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+					</h:panelGroup>
+					<p:outputLabel value="Url:" for="url" />
+					<h:panelGroup>
+						<p:inputText id="url" value="#{bdMoodleBean.bdMoodle.url}" size="70" required="true" />
+						<p:message for="porta" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+					</h:panelGroup>
+					<p:outputLabel value="Usuário" for="usuario" />
+					<h:panelGroup>
+						<p:inputText id="usuario" value="#{bdMoodleBean.bdMoodle.usuario}" size="25" required="true" />
+						<p:message for="porta" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+					</h:panelGroup>
+					<p:outputLabel value="Senha" for="senha" />
+					<h:panelGroup>
+						<p:inputText id="senha" value="#{bdMoodleBean.bdMoodle.senha}" size="25" required="true" />
+						<p:message for="porta" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+					</h:panelGroup>
+					<p:outputLabel value="" />
+					<h:panelGroup style="margin-top: 50px;">
+						<p:commandButton value=" Salvar" action="#{bdMoodleBean.salvar(bdMoodleBean.bdMoodle)}" update="grid" />
+						<p:commandButton value=" Limpar" action="#{bdMoodleBean.reset()}" update="grid" />
+					</h:panelGroup>
+				</p:panelGrid>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,34 @@
+<ui:composition template="/WEB-INF/template/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+	<ui:define name="titulo">SAAD - Lista de Perfis</ui:define>
+	<ui:define name="corpo">
+		<div style="width: 600px; margin: 0 auto;">
+			<h:form>
+				<p:commandButton value="Retornar Para Consulta" action="consultaPerfis?faces-redirect=true" />
+			</h:form>
+			<br />
+			<h:form id="frm">
+				<p:panelGrid id="grid" columns="2" style="width:600px; text-align:left;">
+					<p:outputLabel value="Nome:" for="nome" />
+					<h:panelGroup>
+						<p:inputText id="nome" value="#{perfilBean.perfil.nome}" size="70" required="true" />
+						<p:message for="nome" display="text" showSummary="true" showDetail="false" styleClass="erro_validacao" />
+						<h:inputHidden value="#{perfilBean.perfil.id}" />
+					</h:panelGroup>
+					<p:outputLabel value="Permissões:" for="pickList" />
+					<p:pickList id="pickList" value="#{perfilBean.permissoes}" var="permissao" itemValue="#{permissao}" itemLabel="#{permissao}" converter="permissaoConverter">
+						<f:facet name="sourceCaption">Disponíveis</f:facet>
+						<f:facet name="targetCaption">Selecionados</f:facet>
+						<p:column style="width:75%;">
+							<h:outputText value="#{permissao.valor}" />
+						</p:column>
+					</p:pickList>
+					<br />
+					<h:panelGroup>
+						<p:commandButton value=" Salvar" action="#{perfilBean.salvar(perfilBean.perfil)}" update="grid" />
+					</h:panelGroup>
+				</p:panelGrid>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

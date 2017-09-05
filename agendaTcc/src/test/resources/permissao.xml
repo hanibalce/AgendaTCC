@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+	<permissao
+		id="1"
+		valor="salvar_tcc" />
+
+	<permissao
+		id="2"
+		valor="alterar_nota" />
+
+	<permissao
+		id="3"
+		valor="inscrever_aluno" />
+
+	<permissao
+		id="4"
+		valor="imprimir_declaracao" />
+
+	<permissao
+		id="5"
+		valor="alterar_titulo" />
+
+	<perfil
+		id="1"
+		nome="aluno" />
+
+	<perfil_permissao
+		perfil_id="1"
+		permissoes_id="5" />
+
+	<usuario
+		id="1"
+		ativo="true"
+		cpf="62434748368"
+		dataDeCadastro="2017-05-27 17:46:42.0"
+		email="hanibal_ce@outlook.com"
+		login="hanibal_ce"
+		password="27078020a"
+		passwordHash="1"
+		passwordSalt="1"
+		primeiroNome="Anibal"
+		segundoNome="Oliveira"
+		perfil_id="1" />
+
+	<usuario_permissao
+		Usuario_id="1"
+		permissoes_id="4" />
+
+</dataset>

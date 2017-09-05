@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">SAAD - Nuteds</ui:insert></title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
+	<link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}" />
+</h:head>
+<h:body>
+	<header>
+		<div style="float: left">
+			<h:link outcome="/home">
+				<h:graphicImage library="images" name="logo_saad.png" />
+			</h:link>
+		</div>
+		<div class="usuario">
+			<span>Olá, Aníbal Cavalcante</span>
+		</div>
+		<div>
+			<div class="curso">
+				<h:form>
+					<h:panelGrid columns="2">
+						<p:selectOneMenu value="#">
+							<f:selectItem itemLabel=" ---- Selecione um Curso ---- " noSelectionOption="true" />
+						</p:selectOneMenu>
+						<p:commandButton value="Selecionar" />
+					</h:panelGrid>
+				</h:form>
+			</div>
+			<p:megaMenu style="margin-top:30px">
+				<p:menuitem value="Página Inicial" url="/home.xhtml" icon="ui-icon-home" />
+				<p:submenu label="Cadastros" icon="ui-icon-wrench">
+					<p:column>
+						<p:submenu label="Cadastros Básicos">
+							<p:menuitem value="Alunos" url="#" />
+							<p:menuitem value="Atividades" url="#" />
+							<p:menuitem value="BDs do Moodle" url="/bdmoodle/consultaBdMoodle.xhtml" />
+							<p:menuitem value="Cursos" url="#" />
+							<p:menuitem value="Módulos" url="#" />
+							<p:menuitem value="Instituições de Ensino" url="#" />
+							<p:menuitem value="Perfis de Usuários" url="/perfil/consultaPerfis.xhtml" />
+							<p:menuitem value="Permissões" url="/permissao/consultaPermissoes.xhtml" />
+							<p:menuitem value="Professores" url="#" />
+							<p:menuitem value="Turmas" url="#" />
+							<p:menuitem value="Usuários" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:submenu label="Defesa de Tcc" icon="ui-icon-calendar">
+					<p:column>
+						<p:submenu label="Cadastros de TCC">
+							<p:menuitem value="Bancas de Defesa" url="#" />
+							<p:menuitem value="Datas de Defesa" url="#" />
+							<p:menuitem value="Locais de Defesa" url="#" />
+							<p:menuitem value="Orientadores" url="#" />
+							<p:menuitem value="Avaliadores" url="#" />
+							<p:menuitem value="Tutores" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:submenu label="TCC" icon="ui-icon-document">
+					<p:column>
+						<p:submenu label="Inscrição de TCCs">
+							<p:menuitem value="Inscrever TCC" url="#" />
+							<p:menuitem value="Alterar Dados do TCC" url="#" />
+							<p:menuitem value="Enviar Arquivo Final" url="#" />
+						</p:submenu>
+						<p:submenu label="Bancas de Defesa">
+							<p:menuitem value="Controle de Bancas" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:submenu label="Notas" icon="ui-icon-calculator">
+					<p:column>
+						<p:submenu label="Notas">
+							<p:menuitem value="Notas das Atividades" url="#" />
+							<p:menuitem value="Médias dos Módulos" url="#" />
+							<p:menuitem value="Situação do Aluno" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:submenu label="Documentos" icon="ui-icon-mail-closed">
+					<p:column>
+						<p:submenu label="Documentos do Aluno">
+							<p:menuitem value="Histórico Escolar" url="#" />
+							<p:menuitem value="Declaração de Defesa" url="#" />
+						</p:submenu>
+						<p:submenu label="Documentos do Professor">
+							<p:menuitem value="Participação em Bancas" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:submenu label="Relatórios" icon="ui-icon-print">
+					<p:column>
+						<p:submenu label="Consultas">
+							<p:menuitem value="Alunos por Turma" url="#" />
+							<p:menuitem value="Defesas de TCC" url="#" />
+							<p:menuitem value="Orientações e Avaliações" url="#" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				<p:menuitem value="Sair" url="/index.xhtml" icon="ui-icon-close" />
+			</p:megaMenu>
+		</div>
+	</header>
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+	<footer>
+		<div id="home-rodape">
+			<div>
+				<p>SAAD - Sistema de Apoio a Aprendizagem Discente</p>
+				<p>
+					<small>@Copyright 2016 - Todos os direitos reservados</small>
+				</p>
+			</div>
+		</div>
+	</footer>
+</h:body>
+</html>
